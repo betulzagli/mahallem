@@ -1,0 +1,92 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isStoreOwner(storeId) {
+      return isAuthenticated() && 
+        get(/databases/$(database)/documents/stores/$(storeId)).data.ownerId == request.auth.uid;
+    }
+
+    // Users Collection
+    match /users/{userId} {
+      allow read: if isAuthenticated();
+      allow create: if isOwner(userId);
+      allow update, delete: if isOwner(userId);
+    }
+
+    // Stores Collection
+    match /stores/{storeId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && request.resource.data.ownerId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.ownerId == request.auth.uid;
+    }
+
+    // Products Collection
+    match /products/{productId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && isStoreOwner(request.resource.data.storeId);
+      allow update, delete: if isAuthenticated() && isStoreOwner(resource.data.storeId);
+    }
+
+    // Addresses Collection
+    match /addresses/{addressId} {
+      allow read: if isAuthenticated() && resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.userId == request.auth.uid;
+    }
+
+    // Orders Collection
+    match /orders/{orderId} {
+      // Customer or involved store owners can read
+      allow read: if isAuthenticated() && (
+        resource.data.customerId == request.auth.uid ||
+        request.auth.uid in resource.data.storeOwnerIds
+      );
+
+      // Customer can create order
+      allow create: if isAuthenticated() &&
+        request.resource.data.customerId == request.auth.uid &&
+        request.resource.data.storeIds.size() <= 3 &&
+        request.resource.data.status == 'pendingResponse';
+
+      // Updates are constrained by role and state deadlines
+      allow update: if isAuthenticated() && (
+        // Customer actions:
+        (
+          resource.data.customerId == request.auth.uid && (
+            // Customer cancellation before preparation
+            (
+              request.resource.data.status == 'cancelled' &&
+              resource.data.status in ['pendingResponse', 'pendingCustomerDecision']
+            ) ||
+            // Customer decision after rejection before 5-minute deadline
+            (
+              resource.data.status == 'pendingCustomerDecision' &&
+              request.time <= resource.data.decisionDeadline
+            )
+          )
+        ) ||
+        // Store owner actions:
+        (
+          request.auth.uid in resource.data.storeOwnerIds &&
+          // Cannot accept/reject after response deadline
+          (
+            request.time <= resource.data.responseDeadline
+          )
+        )
+      );
+
+      allow delete: if false; // Orders cannot be deleted to preserve order history
+    }
+  }
+}
+
