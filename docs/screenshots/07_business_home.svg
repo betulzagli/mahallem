@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 760" width="380" height="760">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.12"/>
+    </filter>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3158C9"/>
+      <stop offset="100%" stop-color="#213E96"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Phone Frame -->
+  <rect x="5" y="5" width="370" height="750" rx="36" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="4" filter="url(#shadow)"/>
+  <rect x="12" y="12" width="356" height="736" rx="30" fill="#F7F8FC"/>
+
+  <!-- Status Bar & Notch -->
+  <rect x="130" y="20" width="120" height="24" rx="12" fill="#1E293B"/>
+  <text x="36" y="37" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#1E293B">09:41</text>
+  <rect x="330" y="27" width="16" height="10" rx="3" fill="#1E293B"/>
+
+  <!-- Header Bar -->
+  <text x="32" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="800" fill="#20283A">İşletme Paneli</text>
+  <text x="348" y="76" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#3158C9" text-anchor="end">Gültepe Bakkalı</text>
+
+  <!-- Store Status Controls (Open/Close & Pause/Break) -->
+  <g transform="translate(24, 98)">
+    <rect x="0" y="0" width="332" height="102" rx="14" fill="#FFFFFF" stroke="#D9DFEA" stroke-width="1"/>
+    
+    <!-- Row 1: Dükkan Durumu (Açık) -->
+    <text x="16" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#20283A">Dükkan Durumu: <tspan fill="#1B6B49">AÇIK (Sipariş Alıyor)</tspan></text>
+    <rect x="268" y="14" width="48" height="24" rx="12" fill="#1B6B49"/>
+    <circle cx="304" cy="26" r="9" fill="#FFFFFF"/>
+
+    <line x1="16" y1="48" x2="316" y2="48" stroke="#F1F5F9" stroke-width="1"/>
+
+    <!-- Row 2: Yoğunluk Molası (Kapalı) -->
+    <text x="16" y="76" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#4A5568">Sipariş Alımını Duraklat (Mola)</text>
+    <rect x="268" y="62" width="48" height="24" rx="12" fill="#CBD5E1"/>
+    <circle cx="280" cy="74" r="9" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Metrics Grid: Ciro & Siparişler -->
+  <g transform="translate(24, 212)">
+    <!-- Box 1: Günlük Ciro -->
+    <rect x="0" y="0" width="160" height="92" rx="14" fill="#FFFFFF" stroke="#D9DFEA" stroke-width="1"/>
+    <text x="16" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#64748B">GÜNLÜK CİRO</text>
+    <text x="16" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="900" fill="#3158C9">4.250 TL</text>
+    <text x="16" y="76" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" fill="#1B6B49">↑ %14 artış</text>
+
+    <!-- Box 2: Bekleyen Siparişler -->
+    <rect x="172" y="0" width="160" height="92" rx="14" fill="#FFFFFF" stroke="#D9DFEA" stroke-width="1"/>
+    <text x="188" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#64748B">BEKLEYEN SİPARİŞ</text>
+    <text x="188" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="900" fill="#FF795E">3 Adet</text>
+    <text x="188" y="76" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" fill="#B46506">⏱ 10 dk yanıt sınırı</text>
+  </g>
+
+  <!-- Quick Add Product Action Button -->
+  <g transform="translate(24, 318)">
+    <rect x="0" y="0" width="332" height="48" rx="12" fill="url(#primaryGrad)" filter="url(#shadow)"/>
+    <text x="166" y="29" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">+ Fotoğrafı İle Yeni Ürün Ekle</text>
+  </g>
+
+  <!-- Incoming Orders List Section -->
+  <text x="24" y="398" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800" fill="#20283A">Onay Bekleyen Alt Siparişler</text>
+
+  <!-- Order 1 Card -->
+  <g transform="translate(24, 412)">
+    <rect x="0" y="0" width="332" height="116" rx="14" fill="#FFFFFF" stroke="#D9DFEA" stroke-width="1"/>
+    
+    <text x="16" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800" fill="#20283A">Sipariş #MHL-9210</text>
+    <text x="316" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" fill="#3158C9" text-anchor="end">145.00 TL</text>
+    
+    <text x="16" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#4A5568">Müşteri: Ahmet Yılmaz • 2 Ürün</text>
+    <text x="16" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#B46506">⏳ Yanıt için kalan: 07:15</text>
+
+    <!-- Buttons -->
+    <rect x="16" y="74" width="144" height="32" rx="8" fill="#E6F5EE" stroke="#1B6B49" stroke-width="1"/>
+    <text x="88" y="94" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#1B6B49" text-anchor="middle">✓ Kabul Et</text>
+
+    <rect x="172" y="74" width="144" height="32" rx="8" fill="#FDE8E8" stroke="#C02626" stroke-width="1"/>
+    <text x="244" y="94" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#C02626" text-anchor="middle">✕ Reddet</text>
+  </g>
+
+  <!-- Order 2 Card (Preparing) -->
+  <g transform="translate(24, 540)">
+    <rect x="0" y="0" width="332" height="116" rx="14" fill="#FFFFFF" stroke="#D9DFEA" stroke-width="1"/>
+    <text x="16" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800" fill="#20283A">Sipariş #MHL-8941</text>
+    <text x="316" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" fill="#3158C9" text-anchor="end">36.50 TL</text>
+    <text x="16" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#4A5568">Müşteri: Mehmet Demir • Doğal Günlük Süt (1 L)</text>
+    <text x="16" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#3158C9">👨‍🍳 Hazırlanıyor</text>
+
+    <!-- Button Ready -->
+    <rect x="16" y="74" width="300" height="32" rx="8" fill="#3158C9"/>
+    <text x="166" y="94" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">✓ Ürünleri Hazırladım (Kurye Çağır)</text>
+  </g>
+
+  <!-- Bottom Nav -->
+  <path d="M 12 675 L 368 675 L 368 748 L 12 748 Z" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+  <g transform="translate(50, 692)">
+    <text x="12" y="16" font-size="14" text-anchor="middle">📊</text>
+    <text x="12" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#3158C9" text-anchor="middle">Özet</text>
+  </g>
+  <g transform="translate(130, 692)">
+    <text x="12" y="16" font-size="14" text-anchor="middle">📋</text>
+    <text x="12" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#64748B" text-anchor="middle">Siparişler</text>
+  </g>
+  <g transform="translate(210, 692)">
+    <text x="12" y="16" font-size="14" text-anchor="middle">📦</text>
+    <text x="12" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#64748B" text-anchor="middle">Ürünler</text>
+  </g>
+  <g transform="translate(290, 692)">
+    <text x="12" y="16" font-size="14" text-anchor="middle">⚙️</text>
+    <text x="12" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#64748B" text-anchor="middle">Ayarlar</text>
+  </g>
+</svg>
+

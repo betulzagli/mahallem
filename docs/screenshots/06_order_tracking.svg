@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 760" width="380" height="760">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Phone Frame -->
+  <rect x="5" y="5" width="370" height="750" rx="36" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="4" filter="url(#shadow)"/>
+  <rect x="12" y="12" width="356" height="736" rx="30" fill="#F7F8FC"/>
+
+  <!-- Status Bar & Notch -->
+  <rect x="130" y="20" width="120" height="24" rx="12" fill="#1E293B"/>
+  <text x="36" y="37" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#1E293B">09:41</text>
+  <rect x="330" y="27" width="16" height="10" rx="3" fill="#1E293B"/>
+
+  <!-- Header Bar -->
+  <rect x="24" y="56" width="36" height="36" rx="18" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="42" y="78" font-size="16" text-anchor="middle">←</text>
+  <text x="190" y="79" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="700" fill="#20283A" text-anchor="middle">Sipariş Takibi #MHL-8941</text>
+
+  <!-- Countdown Alert Banner (10 Minutes) -->
+  <g transform="translate(24, 105)">
+    <rect x="0" y="0" width="332" height="70" rx="14" fill="#FEF3E4" stroke="#B46506" stroke-width="1.2"/>
+    <text x="16" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800" fill="#B46506">⏳ Market Yanıt Süresi (10 Dakika)</text>
+    <text x="16" y="50" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#78350F">Marketlerin siparişi kabul etmesi bekleniyor: <tspan font-weight="800" font-size="13">08:42</tspan></text>
+  </g>
+
+  <!-- Sub-Orders Status Card -->
+  <g transform="translate(24, 188)">
+    <rect x="0" y="0" width="332" height="175" rx="14" fill="#FFFFFF" stroke="#D9DFEA" stroke-width="1"/>
+    <text x="16" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800" fill="#20283A">Esnaf Alt Siparişleri (2 Market)</text>
+    
+    <!-- Sub Order 1: Gültepe Bakkalı (Kabul Etti) -->
+    <g transform="translate(16, 40)">
+      <rect x="0" y="0" width="300" height="52" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#20283A">Gültepe Bakkalı</text>
+      <text x="12" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#64748B">1 Ürün • 36.50 TL</text>
+      <rect x="210" y="14" width="78" height="24" rx="6" fill="#E6F5EE"/>
+      <text x="249" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" fill="#1B6B49" text-anchor="middle">✓ KABUL EDİLDİ</text>
+    </g>
+
+    <!-- Sub Order 2: Can Kardeşler Manav (Bekliyor) -->
+    <g transform="translate(16, 104)">
+      <rect x="0" y="0" width="300" height="52" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="12" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#20283A">Can Kardeşler Manav</text>
+      <text x="12" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#64748B">1 Ürün • 76.00 TL</text>
+      <rect x="210" y="14" width="78" height="24" rx="6" fill="#FEF3E4"/>
+      <text x="249" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" fill="#B46506" text-anchor="middle">⏳ BEKLİYOR</text>
+    </g>
+  </g>
+
+  <!-- Courier Simulation Stages -->
+  <g transform="translate(24, 375)">
+    <rect x="0" y="0" width="332" height="235" rx="14" fill="#FFFFFF" stroke="#D9DFEA" stroke-width="1"/>
+    <text x="16" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800" fill="#20283A">Tek Kurye Teslimat Aşamaları</text>
+
+    <!-- Step 1: Hazırlık -->
+    <circle cx="30" cy="58" r="10" fill="#3158C9"/>
+    <text x="30" y="62" font-size="10" fill="#FFFFFF" font-weight="700" text-anchor="middle">1</text>
+    <line x1="30" y1="68" x2="30" y2="98" stroke="#CBD5E1" stroke-width="2"/>
+    <text x="52" y="56" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#20283A">Market Onayı &amp; Hazırlık</text>
+    <text x="52" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#3158C9" font-weight="600">Şu anda bu aşamadasınız</text>
+
+    <!-- Step 2: Kurye Atandı -->
+    <circle cx="30" cy="108" r="10" fill="#E2E8F0"/>
+    <text x="30" y="112" font-size="10" fill="#64748B" font-weight="700" text-anchor="middle">2</text>
+    <line x1="30" y1="118" x2="30" y2="148" stroke="#CBD5E1" stroke-width="2"/>
+    <text x="52" y="106" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#64748B">Kurye Atanması</text>
+    <text x="52" y="120" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#94A3B8">Tüm marketler hazır olduğunda</text>
+
+    <!-- Step 3: Ürünler Toplanıyor -->
+    <circle cx="30" cy="158" r="10" fill="#E2E8F0"/>
+    <text x="30" y="162" font-size="10" fill="#64748B" font-weight="700" text-anchor="middle">3</text>
+    <line x1="30" y1="168" x2="30" y2="198" stroke="#CBD5E1" stroke-width="2"/>
+    <text x="52" y="156" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#64748B">Marketlerden Toplama</text>
+    <text x="52" y="170" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#94A3B8">Kurye esnafları dolaşarak toplar</text>
+
+    <!-- Step 4: Teslim Edildi -->
+    <circle cx="30" cy="208" r="10" fill="#E2E8F0"/>
+    <text x="30" y="212" font-size="10" fill="#64748B" font-weight="700" text-anchor="middle">4</text>
+    <text x="52" y="206" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#64748B">Adresinize Teslimat</text>
+    <text x="52" y="220" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#94A3B8">Lale Sokak No: 14</text>
+  </g>
+
+  <!-- Cancel Button (Allowed before preparation) -->
+  <g transform="translate(24, 640)">
+    <rect x="0" y="0" width="332" height="48" rx="12" fill="#FDE8E8" stroke="#C02626" stroke-width="1"/>
+    <text x="166" y="29" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#C02626" text-anchor="middle">Siparişi İptal Et (Hazırlık Öncesi)</text>
+  </g>
+</svg>
+
