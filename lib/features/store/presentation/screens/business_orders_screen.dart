@@ -260,6 +260,7 @@ class _StoreOrderCard extends StatelessWidget {
                       children: [
                         ProductVisualBadge(
                           imageKey: item.sampleImageKey,
+                          imageUrl: item.imageUrl,
                           size: 32,
                           iconSize: 16,
                         ),

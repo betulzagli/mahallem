@@ -1,8 +1,33 @@
 import 'package:flutter/material.dart';
 
-/// Ürün veya mağaza anahtarına (`imageKey`) göre uygun ikon ve renk tonunu belirleyen çözümleyici.
+/// Ürün veya mağaza anahtarına (`imageKey`) göre gerçek ürün fotoğrafı, ikon ve renk tonunu belirleyen çözümleyici.
 class SampleVisualResolver {
   SampleVisualResolver._();
+
+  /// Verilen anahtar için uygulama içi gerçek ürün/mağaza fotoğrafı varlık yolunu döndürür.
+  static String getAssetPath(String key) {
+    return switch (key) {
+      'grocery' => 'assets/images/grocery.jpg',
+      'produce' => 'assets/images/produce.jpg',
+      'meat' => 'assets/images/meat.jpg',
+      'bakery' => 'assets/images/bakery.jpg',
+      'milk' => 'assets/images/milk.jpg',
+      'eggs' => 'assets/images/eggs.jpg',
+      'cheese' => 'assets/images/cheese.jpg',
+      'tea' => 'assets/images/tea.jpg',
+      'tomato' => 'assets/images/tomato.jpg',
+      'cucumber' => 'assets/images/cucumber.jpg',
+      'apple' => 'assets/images/apple.jpg',
+      'banana' => 'assets/images/banana.jpg',
+      'minced_meat' => 'assets/images/minced_meat.jpg',
+      'cubed_meat' => 'assets/images/cubed_meat.jpg',
+      'chicken' => 'assets/images/chicken.jpg',
+      'bread' => 'assets/images/bread.jpg',
+      'simit' => 'assets/images/simit.jpg',
+      'pastry' => 'assets/images/pastry.jpg',
+      _ => 'assets/images/grocery.jpg',
+    };
+  }
 
   /// Verilen anahtar için Material ikonu döndürür.
   static IconData getIcon(String key) {
@@ -42,16 +67,17 @@ class SampleVisualResolver {
   }
 }
 
-/// Ürün fotoğrafı veya kategori ikonunu gösteren görsel rozet bileşeni.
+/// Ürün veya mağaza fotoğrafını gösteren görsel rozet bileşeni.
 ///
-/// Eğer geçerli bir [imageUrl] varsa ağ üzerinden görseli yükler; yüklenemezse veya
-/// URL verilmemişse tematik arka plan ve ikona zarif bir şekilde geri düşer (fallback).
+/// Yerel asset (`assets/images/...`), ağ URL'si (`https://...`) veya [imageKey] üzerinden
+/// eşleşen gerçek ürün fotoğrafını yüksek kalitede gösterir.
 class ProductVisualBadge extends StatelessWidget {
   final String imageKey;
   final String? imageUrl;
   final double size;
   final double iconSize;
   final double borderRadius;
+  final bool preferIconOnly;
 
   const ProductVisualBadge({
     super.key,
@@ -60,9 +86,10 @@ class ProductVisualBadge extends StatelessWidget {
     this.size = 64,
     this.iconSize = 32,
     this.borderRadius = 12,
+    this.preferIconOnly = false,
   });
 
-  Widget _buildFallback(BuildContext context) {
+  Widget _buildIconFallback(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     final color = SampleVisualResolver.getTint(imageKey, scheme);
     final icon = SampleVisualResolver.getIcon(imageKey);
@@ -85,19 +112,43 @@ class ProductVisualBadge extends StatelessWidget {
     );
   }
 
+  Widget _buildAssetImage(BuildContext context, String assetPath) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(borderRadius),
+      child: Image.asset(
+        assetPath,
+        width: size,
+        height: size,
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) => _buildIconFallback(context),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
+    if (preferIconOnly) {
+      return _buildIconFallback(context);
+    }
 
-    if (imageUrl != null && imageUrl!.trim().isNotEmpty) {
+    final scheme = Theme.of(context).colorScheme;
+    final defaultAssetPath = SampleVisualResolver.getAssetPath(imageKey);
+    final trimmedUrl = imageUrl?.trim() ?? '';
+
+    if (trimmedUrl.isNotEmpty) {
+      if (trimmedUrl.startsWith('assets/')) {
+        return _buildAssetImage(context, trimmedUrl);
+      }
+
       return ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius),
         child: Image.network(
-          imageUrl!,
+          trimmedUrl,
           width: size,
           height: size,
           fit: BoxFit.cover,
-          errorBuilder: (context, error, stackTrace) => _buildFallback(context),
+          errorBuilder: (context, error, stackTrace) =>
+              _buildAssetImage(context, defaultAssetPath),
           loadingBuilder: (context, child, loadingProgress) {
             if (loadingProgress == null) return child;
             return Container(
@@ -120,7 +171,6 @@ class ProductVisualBadge extends StatelessWidget {
       );
     }
 
-    return _buildFallback(context);
+    return _buildAssetImage(context, defaultAssetPath);
   }
 }
-

@@ -20,62 +20,77 @@ class _PresetProductPhoto {
 const List<_PresetProductPhoto> _presetPhotos = [
   _PresetProductPhoto(
     label: 'Süt',
-    url: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=600&q=80',
+    url: 'assets/images/milk.jpg',
     sampleKey: 'milk',
   ),
   _PresetProductPhoto(
     label: 'Yumurta',
-    url: 'https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=600&q=80',
+    url: 'assets/images/eggs.jpg',
     sampleKey: 'eggs',
   ),
   _PresetProductPhoto(
     label: 'Peynir',
-    url: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=600&q=80',
+    url: 'assets/images/cheese.jpg',
     sampleKey: 'cheese',
   ),
   _PresetProductPhoto(
-    label: 'Ekmek',
-    url: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80',
-    sampleKey: 'bread',
-  ),
-  _PresetProductPhoto(
-    label: 'Simit',
-    url: 'https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?auto=format&fit=crop&w=600&q=80',
-    sampleKey: 'simit',
+    label: 'Çay',
+    url: 'assets/images/tea.jpg',
+    sampleKey: 'tea',
   ),
   _PresetProductPhoto(
     label: 'Domates',
-    url: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=600&q=80',
+    url: 'assets/images/tomato.jpg',
     sampleKey: 'tomato',
   ),
   _PresetProductPhoto(
     label: 'Salatalık',
-    url: 'https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?auto=format&fit=crop&w=600&q=80',
+    url: 'assets/images/cucumber.jpg',
     sampleKey: 'cucumber',
   ),
   _PresetProductPhoto(
     label: 'Elma',
-    url: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=600&q=80',
+    url: 'assets/images/apple.jpg',
     sampleKey: 'apple',
   ),
   _PresetProductPhoto(
     label: 'Muz',
-    url: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=600&q=80',
+    url: 'assets/images/banana.jpg',
     sampleKey: 'banana',
   ),
   _PresetProductPhoto(
-    label: 'Kıyma & Et',
-    url: 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=600&q=80',
+    label: 'Kıyma',
+    url: 'assets/images/minced_meat.jpg',
     sampleKey: 'minced_meat',
   ),
   _PresetProductPhoto(
-    label: 'Çay',
-    url: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80',
-    sampleKey: 'tea',
+    label: 'Kuşbaşı Et',
+    url: 'assets/images/cubed_meat.jpg',
+    sampleKey: 'cubed_meat',
   ),
   _PresetProductPhoto(
-    label: 'Bakkal & Genel',
-    url: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80',
+    label: 'Tavuk',
+    url: 'assets/images/chicken.jpg',
+    sampleKey: 'chicken',
+  ),
+  _PresetProductPhoto(
+    label: 'Ekmek',
+    url: 'assets/images/bread.jpg',
+    sampleKey: 'bread',
+  ),
+  _PresetProductPhoto(
+    label: 'Simit',
+    url: 'assets/images/simit.jpg',
+    sampleKey: 'simit',
+  ),
+  _PresetProductPhoto(
+    label: 'Su Böreği',
+    url: 'assets/images/pastry.jpg',
+    sampleKey: 'pastry',
+  ),
+  _PresetProductPhoto(
+    label: 'Bakkal',
+    url: 'assets/images/grocery.jpg',
     sampleKey: 'grocery',
   ),
 ];
@@ -411,19 +426,12 @@ Future<void> showAddEditProductDialog({
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(6),
-                                  child: Image.network(
-                                    preset.url,
-                                    width: 44,
-                                    height: 44,
-                                    fit: BoxFit.cover,
-                                    errorBuilder: (context, error, stackTrace) => Icon(
-                                      SampleVisualResolver.getIcon(preset.sampleKey),
-                                      size: 24,
-                                      color: colorScheme.primary,
-                                    ),
-                                  ),
+                                ProductVisualBadge(
+                                  imageKey: preset.sampleKey,
+                                  imageUrl: preset.url,
+                                  size: 44,
+                                  iconSize: 24,
+                                  borderRadius: 6,
                                 ),
                                 const SizedBox(height: 4),
                                 Text(

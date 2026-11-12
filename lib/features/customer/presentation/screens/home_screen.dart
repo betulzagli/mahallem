@@ -408,7 +408,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisCount: 2,
                           crossAxisSpacing: 12,
                           mainAxisSpacing: 12,
-                          childAspectRatio: 0.56,
+                          childAspectRatio: 0.70,
                         ),
                         itemBuilder: (context, index) {
                           final product = products[index];
@@ -583,7 +583,7 @@ class _ProductCardState extends State<_ProductCard> {
                   child: ProductVisualBadge(
                     imageKey: product.sampleImageKey,
                     imageUrl: product.imageUrl,
-                    size: 82,
+                    size: 86,
                     iconSize: 42,
                     borderRadius: 14,
                   ),

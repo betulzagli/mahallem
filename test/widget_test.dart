@@ -121,7 +121,7 @@ void main() {
     );
 
     expect(find.byType(ProductVisualBadge), findsOneWidget);
-    expect(find.byIcon(Icons.local_drink), findsOneWidget);
+    expect(find.byType(Image), findsOneWidget);
   });
 
   testWidgets('Şifremi unuttum akışı dönen loader olmadan altta SnackBar göstermelidir', (WidgetTester tester) async {

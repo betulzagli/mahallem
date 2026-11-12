@@ -118,6 +118,7 @@ class StoreRepositoryImpl implements StoreRepository {
       autoReopenOnNextSchedule: data['autoReopenOnNextSchedule'] ?? true,
       openingHours: data['openingHours'] ?? '08:00 - 21:00',
       sampleImageKey: data['sampleImageKey'] ?? 'grocery',
+      imageUrl: data['imageUrl'],
       sampleRouteDistanceKm: (data['sampleRouteDistanceKm'] as num?)?.toDouble() ?? 1.5,
     );
   }
